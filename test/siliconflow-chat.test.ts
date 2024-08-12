@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import dotenv from 'dotenv'
-import request from '../src/request'
+import request from '../src/api'
 
 dotenv.config()
 

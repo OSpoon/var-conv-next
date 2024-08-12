@@ -1,7 +1,7 @@
 import type { ExtensionContext, TextEditor } from 'vscode'
 import { commands, window, workspace } from 'vscode'
 import { Case } from 'change-case-all'
-import request from './request'
+import request from './api'
 import prompt from './prompt'
 
 async function changeCaseByAPI(content: string, commandId: string) {
