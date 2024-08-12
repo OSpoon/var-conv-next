@@ -27,12 +27,124 @@
   "engines": {
     "vscode": "^1.90.0"
   },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "var-conv-next.CamelCase",
+        "title": "CamelCase, eg: helloWorld"
+      },
+      {
+        "command": "var-conv-next.PascalCase",
+        "title": "PascalCase, eg: HelloWorld"
+      },
+      {
+        "command": "var-conv-next.KebabCase",
+        "title": "KebabCase, eg: hello-world"
+      },
+      {
+        "command": "var-conv-next.SnakeCase",
+        "title": "SnakeCase, eg: hello_world"
+      },
+      {
+        "command": "var-conv-next.ConstantCase",
+        "title": "ConstantCase, eg: HELLO_WORLD"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "var-conv-next",
+        "properties": {
+          "var-conv-next.contextMenu.enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "是否在编辑器上下文菜单中显示变量转换的菜单"
+          },
+          "var-conv-next.siliconCloud.enabled": {
+            "type": "boolean",
+            "default": false,
+            "description": "是否启用 SiliconCloud，提供变量命名转换服务"
+          },
+          "var-conv-next.siliconCloud.token": {
+            "type": "string",
+            "default": "",
+            "description": "启用 SiliconCloud 需提供 API Token"
+          }
+        }
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "var-conv-next/editor/context/conv",
+          "group": "var-conv-next",
+          "when": "config.var-conv-next.contextMenu.enabled"
+        }
+      ],
+      "var-conv-next/editor/context/conv": [
+        {
+          "command": "var-conv-next.CamelCase",
+          "group": "var-conv-next"
+        },
+        {
+          "command": "var-conv-next.PascalCase",
+          "group": "var-conv-next"
+        },
+        {
+          "command": "var-conv-next.KebabCase",
+          "group": "var-conv-next"
+        },
+        {
+          "command": "var-conv-next.SnakeCase",
+          "group": "var-conv-next"
+        },
+        {
+          "command": "var-conv-next.ConstantCase",
+          "group": "var-conv-next"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "var-conv-next/editor/context/conv",
+        "label": "变量命名转换(Next)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "var-conv-next.CamelCase",
+        "key": "alt+1",
+        "mac": "alt+cmd+1",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "var-conv-next.PascalCase",
+        "key": "alt+2",
+        "mac": "alt+cmd+2",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "var-conv-next.KebabCase",
+        "key": "alt+3",
+        "mac": "alt+cmd+3",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "var-conv-next.SnakeCase",
+        "key": "alt+4",
+        "mac": "alt+cmd+4",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "var-conv-next.ConstantCase",
+        "key": "alt+5",
+        "mac": "alt+cmd+5",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
-    "dev": "nr build --watch",
+    "dev": "nr build --watch --sourcemap",
     "lint": "eslint .",
     "vscode:prepublish": "nr build",
     "publish": "vsce publish --no-dependencies",
@@ -40,6 +152,10 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "release": "bumpp && nr publish"
+  },
+  "dependencies": {
+    "axios": "^1.7.3",
+    "change-case": "^5.4.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.1",
@@ -57,9 +173,5 @@
     "typescript": "^5.4.5",
     "vite": "^5.3.1",
     "vitest": "^1.6.0"
-  },
-  "dependencies": {
-    "axios": "^1.7.3",
-    "change-case": "^5.4.4"
   }
 }

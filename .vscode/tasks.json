@@ -8,7 +8,7 @@
       "script": "dev",
       "isBackground": true,
       "presentation": {
-        "reveal": "never"
+        "reveal": "always"
       },
       "problemMatcher": [
         {

@@ -16,6 +16,11 @@ describe(`should be PascalCase`, () => {
   its(target, 'pascalCase')
 })
 
+describe(`should be KebabCase`, () => {
+  const target = `hello-world`
+  its(target, 'kebabCase')
+})
+
 describe(`should be SnakeCase`, () => {
   const target = `hello_world`
   its(target, 'snakeCase')
@@ -24,11 +29,6 @@ describe(`should be SnakeCase`, () => {
 describe(`should be ConstantCase`, () => {
   const target = `HELLO_WORLD`
   its(target, 'constantCase')
-})
-
-describe(`should be KebabCase`, () => {
-  const target = `hello-world`
-  its(target, 'kebabCase')
 })
 
 function its(target: string, caseName: string) {

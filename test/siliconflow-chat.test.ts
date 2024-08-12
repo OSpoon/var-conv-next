@@ -48,6 +48,14 @@ describe(`siliconflow chat variable style`, () => {
     expect(result?.choices[0].message.content).toEqual(target)
   })
 
+  it.skipIf(!isDev)(`should be KebabCase`, async () => {
+    const target = `hello-world`
+    const variable = `hello world`
+    const style = `KebabCase`
+    const result = await request(prompt(variable, style))
+    expect(result?.choices[0].message.content).toEqual(target)
+  })
+
   it.skipIf(!isDev)(`should be SnakeCase`, async () => {
     const target = `hello_world`
     const variable = `hello world`
@@ -60,14 +68,6 @@ describe(`siliconflow chat variable style`, () => {
     const target = `HELLO_WORLD`
     const variable = `hello world`
     const style = `ConstantCase`
-    const result = await request(prompt(variable, style))
-    expect(result?.choices[0].message.content).toEqual(target)
-  })
-
-  it.skipIf(!isDev)(`should be KebabCase`, async () => {
-    const target = `hello-world`
-    const variable = `hello world`
-    const style = `KebabCase`
     const result = await request(prompt(variable, style))
     expect(result?.choices[0].message.content).toEqual(target)
   })
