@@ -1,36 +1,5 @@
-import process from 'node:process'
 import axios from 'axios'
-import dotenv from 'dotenv'
-
-dotenv.config()
-
-export interface Response {
-  id: string
-  choices: Choice[]
-  usage: Usage
-  created: number
-  model: string
-  object: string
-}
-
-export interface Choice {
-  message: Message
-  finish_reason: string
-}
-
-export interface Message {
-  role: string
-  content: string
-}
-
-export interface Usage {
-  prompt_tokens: number
-  completion_tokens: number
-  total_tokens: number
-}
-
-const token = process.env.TOKEN
-const model = process.env.MODEL
+import type { Response } from './types'
 
 const options = {
   method: 'POST',
@@ -38,25 +7,29 @@ const options = {
   headers: {
     'accept': 'application/json',
     'content-type': 'application/json',
-    'authorization': `Bearer ${token}`,
+    'authorization': ``,
   },
   data: {
-    model,
+    model: ``,
     messages: [
-      { role: 'user', content: '' },
+      { role: 'user', content: '输出格式：转换后的变量名称' },
+      { role: 'user', content: '重点要求：不要输出额外的信息, 仅输出转换后的变量名称即可.' },
     ].filter(i => i.content),
     stream: false,
-    max_tokens: 50,
-    temperature: 0.1,
+    max_tokens: 20,
+    temperature: 0,
     top_p: 0.7,
     top_k: 50,
-    frequency_penalty: 0.5,
+    frequency_penalty: 0,
     n: 1,
   },
 }
 
-export default function request(content: string): Promise<Response> {
+export default function request(content: string, opts: { token: string, model: string }): Promise<Response> {
   return new Promise((resolve, reject) => {
+    const { token, model } = opts
+    options.headers.authorization = `Bearer ${token}`
+    options.data.model = model
     options.data.messages.push({ role: 'user', content })
     axios.request(options).then((response) => {
       resolve(response.data)

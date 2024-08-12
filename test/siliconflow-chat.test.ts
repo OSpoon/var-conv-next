@@ -36,7 +36,7 @@ describe(`siliconflow chat variable style`, () => {
     const target = `helloWorld`
     const variable = `hello world`
     const style = `CamelCase`
-    const result = await request(prompt(variable, style))
+    const result = await request(prompt(variable, style), { token: process.env.TOKEN!, model: process.env.MODEL! })
     expect(result?.choices[0].message.content).toEqual(target)
   })
 
@@ -44,7 +44,7 @@ describe(`siliconflow chat variable style`, () => {
     const target = `HelloWorld`
     const variable = `hello world`
     const style = `PascalCase`
-    const result = await request(prompt(variable, style))
+    const result = await request(prompt(variable, style), { token: process.env.TOKEN!, model: process.env.MODEL! })
     expect(result?.choices[0].message.content).toEqual(target)
   })
 
@@ -52,7 +52,7 @@ describe(`siliconflow chat variable style`, () => {
     const target = `hello-world`
     const variable = `hello world`
     const style = `KebabCase`
-    const result = await request(prompt(variable, style))
+    const result = await request(prompt(variable, style), { token: process.env.TOKEN!, model: process.env.MODEL! })
     expect(result?.choices[0].message.content).toEqual(target)
   })
 
@@ -60,7 +60,7 @@ describe(`siliconflow chat variable style`, () => {
     const target = `hello_world`
     const variable = `hello world`
     const style = `SnakeCase`
-    const result = await request(prompt(variable, style))
+    const result = await request(prompt(variable, style), { token: process.env.TOKEN!, model: process.env.MODEL! })
     expect(result?.choices[0].message.content).toEqual(target)
   })
 
@@ -68,7 +68,7 @@ describe(`siliconflow chat variable style`, () => {
     const target = `HELLO_WORLD`
     const variable = `hello world`
     const style = `ConstantCase`
-    const result = await request(prompt(variable, style))
+    const result = await request(prompt(variable, style), { token: process.env.TOKEN!, model: process.env.MODEL! })
     expect(result?.choices[0].message.content).toEqual(target)
   })
 })

@@ -30,28 +30,29 @@
   "contributes": {
     "commands": [
       {
-        "command": "var-conv-next.CamelCase",
-        "title": "CamelCase, eg: helloWorld"
+        "command": "var-conv-next.camel",
+        "title": "1.CamelCase        helloWorld"
       },
       {
-        "command": "var-conv-next.PascalCase",
-        "title": "PascalCase, eg: HelloWorld"
+        "command": "var-conv-next.pascal",
+        "title": "2.PascalCase       HelloWorld"
       },
       {
-        "command": "var-conv-next.KebabCase",
-        "title": "KebabCase, eg: hello-world"
+        "command": "var-conv-next.kebab",
+        "title": "3.KebabCase       hello-world"
       },
       {
-        "command": "var-conv-next.SnakeCase",
-        "title": "SnakeCase, eg: hello_world"
+        "command": "var-conv-next.snake",
+        "title": "4.SnakeCase       hello_world"
       },
       {
-        "command": "var-conv-next.ConstantCase",
-        "title": "ConstantCase, eg: HELLO_WORLD"
+        "command": "var-conv-next.constant",
+        "title": "5.ConstantCase  HELLO_WORLD"
       }
     ],
     "configuration": [
       {
+        "type": "object",
         "title": "var-conv-next",
         "properties": {
           "var-conv-next.contextMenu.enabled": {
@@ -64,10 +65,15 @@
             "default": false,
             "description": "是否启用 SiliconCloud，提供变量命名转换服务"
           },
+          "var-conv-next.siliconCloud.model": {
+            "type": "string",
+            "default": "",
+            "description": "启用 SiliconCloud 需提供 Model"
+          },
           "var-conv-next.siliconCloud.token": {
             "type": "string",
             "default": "",
-            "description": "启用 SiliconCloud 需提供 API Token"
+            "description": "启用 SiliconCloud 需提供 Token"
           }
         }
       }
@@ -82,23 +88,23 @@
       ],
       "var-conv-next/editor/context/conv": [
         {
-          "command": "var-conv-next.CamelCase",
+          "command": "var-conv-next.camel",
           "group": "var-conv-next"
         },
         {
-          "command": "var-conv-next.PascalCase",
+          "command": "var-conv-next.pascal",
           "group": "var-conv-next"
         },
         {
-          "command": "var-conv-next.KebabCase",
+          "command": "var-conv-next.kebab",
           "group": "var-conv-next"
         },
         {
-          "command": "var-conv-next.SnakeCase",
+          "command": "var-conv-next.snake",
           "group": "var-conv-next"
         },
         {
-          "command": "var-conv-next.ConstantCase",
+          "command": "var-conv-next.constant",
           "group": "var-conv-next"
         }
       ]
@@ -111,31 +117,31 @@
     ],
     "keybindings": [
       {
-        "command": "var-conv-next.CamelCase",
+        "command": "var-conv-next.camel",
         "key": "alt+1",
         "mac": "alt+cmd+1",
         "when": "editorTextFocus"
       },
       {
-        "command": "var-conv-next.PascalCase",
+        "command": "var-conv-next.pascal",
         "key": "alt+2",
         "mac": "alt+cmd+2",
         "when": "editorTextFocus"
       },
       {
-        "command": "var-conv-next.KebabCase",
+        "command": "var-conv-next.kebab",
         "key": "alt+3",
         "mac": "alt+cmd+3",
         "when": "editorTextFocus"
       },
       {
-        "command": "var-conv-next.SnakeCase",
+        "command": "var-conv-next.snake",
         "key": "alt+4",
         "mac": "alt+cmd+4",
         "when": "editorTextFocus"
       },
       {
-        "command": "var-conv-next.ConstantCase",
+        "command": "var-conv-next.constant",
         "key": "alt+5",
         "mac": "alt+cmd+5",
         "when": "editorTextFocus"
@@ -155,7 +161,7 @@
   },
   "dependencies": {
     "axios": "^1.7.3",
-    "change-case": "^5.4.4"
+    "change-case-all": "^2.1.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.1",
