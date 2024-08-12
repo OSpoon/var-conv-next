@@ -1,24 +1,20 @@
 {
-  "publisher": "antfu",
-  "name": "ext-name",
-  "displayName": "ext-name",
+  "publisher": "ospoon",
+  "name": "var-conv-next",
+  "displayName": "var-conv-next",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@9.3.0",
-  "description": "",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "description": "Code variable naming quick conversion plug-in suitable for VSCode",
+  "author": "OSpoon <zxin088@gmail.com>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/antfu/ext-name#readme",
+  "homepage": "https://github.com/ospoon/var-conv-next#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/antfu/ext-name"
+    "url": "https://github.com/ospoon/var-conv-next"
   },
   "bugs": {
-    "url": "https://github.com/antfu/ext-name/issues"
-  },
-  "sponsor": {
-    "url": "https://github.com/sponsors/antfu"
+    "url": "https://github.com/ospoon/var-conv-next/issues"
   },
   "categories": [
     "Other"

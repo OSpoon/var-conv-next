@@ -1,3 +1,21 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M26.6667 1.66667H24V7H8V9.66667H5.33333V20.3333H8V23H10.6667V28.3333H21.3333V25.6667H26.6667V23H21.3333V20.3333H26.6667V17.6667H21.3333V15H10.6667V20.3333H8V9.66667H24V7H26.6667V1.66667ZM18.6667 25.6667H13.3333V17.6667H18.6667V25.6667Z" fill="#888888"/>
-</svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.80597014925365 130.1224489795918" width="281.6119402985073" height="260.2448979591836">
+  <!-- svg-source:excalidraw -->
+  
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://excalidraw.com/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://excalidraw.com/Cascadia.woff2");
+      }
+      @font-face {
+        font-family: "Assistant";
+        src: url("https://excalidraw.com/Assistant-Regular.woff2");
+      }
+    </style>
+    
+  </defs>
+  <g stroke-linecap="round" transform="translate(10 10) rotate(0 60.40298507462683 55.061224489795904)"><path d="M27.53 0 C44.55 2.59, 64.01 5.33, 93.28 0 C112.45 -5.22, 119.54 9.69, 120.81 27.53 C120.17 44.2, 120.76 57.38, 120.81 82.59 C118.38 106.23, 114.95 113.76, 93.28 110.12 C66.18 111.5, 45.35 108.46, 27.53 110.12 C11.63 113.64, 5.02 96.33, 0 82.59 C3.14 71.43, 3.94 58.44, 0 27.53 C2.37 10.93, 11.37 1.11, 27.53 0" stroke="none" stroke-width="0" fill="#ffec99"></path><path d="M27.53 0 C44.25 -3.26, 67.74 3.05, 93.28 0 M27.53 0 C43.42 0.68, 62.57 -1.22, 93.28 0 M93.28 0 C108.89 -2.76, 120.53 6.22, 120.81 27.53 M93.28 0 C115.23 2.59, 121.4 9.22, 120.81 27.53 M120.81 27.53 C121.77 38.72, 122.99 54.31, 120.81 82.59 M120.81 27.53 C121.13 43.15, 120.91 56.41, 120.81 82.59 M120.81 82.59 C122.72 98.44, 113.02 110.11, 93.28 110.12 M120.81 82.59 C116.32 102.58, 110.17 113.86, 93.28 110.12 M93.28 110.12 C78.65 111.56, 56.5 108.89, 27.53 110.12 M93.28 110.12 C71.24 109.75, 46.15 111.45, 27.53 110.12 M27.53 110.12 C6.46 111.47, -0.59 100.38, 0 82.59 M27.53 110.12 C8.15 111.55, 3.54 98.82, 0 82.59 M0 82.59 C-2.03 67.24, 0.53 47.22, 0 27.53 M0 82.59 C-2.35 62.68, -1.21 42.44, 0 27.53 M0 27.53 C3.99 9.3, 10.75 -2.07, 27.53 0 M0 27.53 C1.43 8.49, 7 -2.95, 27.53 0" stroke="#1e1e1e" stroke-width="4" fill="none"></path></g><g transform="translate(31.018997647869014 20.061224489795904) rotate(0 39.38398742675781 45)"><text x="39.38398742675781" y="0" font-family="Virgil, Segoe UI Emoji" font-size="36px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Var</text><text x="39.38398742675781" y="45" font-family="Virgil, Segoe UI Emoji" font-size="36px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Conv</text></g></svg>
