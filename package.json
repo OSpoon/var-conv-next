@@ -68,12 +68,12 @@
           "var-conv-next.siliconCloud.model": {
             "type": "string",
             "default": "",
-            "description": "启用 SiliconCloud 需提供 Model"
+            "markdownDescription": "启用 SiliconCloud 需提供 Model, 详见: [平台模型列表](https://docs.siliconflow.cn/docs/model-names)"
           },
           "var-conv-next.siliconCloud.token": {
             "type": "string",
             "default": "",
-            "description": "启用 SiliconCloud 需提供 Token"
+            "markdownDescription": "启用 SiliconCloud 需提供 Token, 详见: [API密钥](https://cloud.siliconflow.cn/account/ak)"
           }
         }
       }
