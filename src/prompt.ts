@@ -1,11 +1,11 @@
-function styles(variable: string, style: string) {
+function styles(variable: string) {
   return {
     camel: {
       name: 'camel',
       prompts: [
 `Target：Implement variable naming style conversion.\n`,
 `Input variable：${variable}\n`,
-`Change style：${style} case\n`,
+`Change style：camel case\n`,
 `Style introduce：The first word is lowercase, and the first letter of the next word is uppercase, without delimiters.\n`,
 `Tip 1: Output only converted variable names.\n`,
 `Tip 2: Output directly if it matches the style.\n`,
@@ -16,7 +16,7 @@ function styles(variable: string, style: string) {
       prompts: [
 `Target：Implement variable naming style conversion.\n`,
 `Input variable：${variable}\n`,
-`Change style：${style} case\n`,
+`Change style：pascal case\n`,
 `Style introduce：The first letter of each word is capitalized without delimiters.\n`,
 `Tip 1: Output only converted variable names.\n`,
 `Tip 2: Output directly if it matches the style.\n`,
@@ -27,7 +27,7 @@ function styles(variable: string, style: string) {
       prompts: [
 `Target：Implement variable naming style conversion.\n`,
 `Input variable：${variable}\n`,
-`Change style：${style} case\n`,
+`Change style：kebab case\n`,
 `Style introduce：All letters are lowercase, separated by a dash of "-".\n`,
 `Tip 1: Output only converted variable names.\n`,
 `Tip 2: Output directly if it matches the style.\n`,
@@ -38,7 +38,7 @@ function styles(variable: string, style: string) {
       prompts: [
 `Target：Implement variable naming style conversion.\n`,
 `Input variable：${variable}\n`,
-`Change style：${style} case\n`,
+`Change style：snake case\n`,
 `Style introduce：All letters are lowercase and words are separated by the underscore "_".\n`,
 `Tip 1: Output only converted variable names.\n`,
 `Tip 2: Output directly if it matches the style.\n`,
@@ -49,7 +49,7 @@ function styles(variable: string, style: string) {
       prompts: [
 `Target：Implement variable naming style conversion.\n`,
 `Input variable：${variable}\n`,
-`Change style：${style} case\n`,
+`Change style：constant case\n`,
 `Style introduce：All letters are capitalized and words are separated by the underscore "_".\n`,
 `Tip 1: Output only converted variable names.\n`,
 `Tip 2: Output directly if it matches the style.\n`,
@@ -59,7 +59,6 @@ function styles(variable: string, style: string) {
 }
 
 export default function prompt(variable: string, style: string) {
-  const _style = styles(variable, style)
-  const result = Reflect.get(_style, style).prompts
+  const result = Reflect.get(styles(variable), style).prompts
   return result
 }
