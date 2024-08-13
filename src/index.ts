@@ -14,8 +14,7 @@ async function changeCaseByAPI(content: string, commandId: string) {
     window.showInformationMessage('启用 SiliconCloud 需提供 Model')
     return
   }
-  const resp = await request(prompt(content, commandId), { token, model })
-  return resp.choices[0].message.content || content
+  return await request(prompt(content, commandId), { token, model })
 }
 
 function changeCaseByLocal(content: string, commandId: string) {

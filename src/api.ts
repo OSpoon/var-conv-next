@@ -1,38 +1,43 @@
 import axios from 'axios'
-import type { Response } from './types'
 
-const options = {
-  method: 'POST',
-  url: 'https://api.siliconflow.cn/v1/chat/completions',
-  headers: {
-    'accept': 'application/json',
-    'content-type': 'application/json',
-    'authorization': ``,
-  },
-  data: {
-    model: ``,
-    messages: [
-      { role: 'user', content: '输出格式：转换后的变量名称' },
-      { role: 'user', content: '重点要求：不要输出额外的信息, 仅输出转换后的变量名称即可.' },
-    ].filter(i => i.content),
-    stream: false,
-    max_tokens: 20,
-    temperature: 0,
-    top_p: 0.7,
-    top_k: 50,
-    frequency_penalty: 0,
-    n: 1,
-  },
+const URL = 'https://api.siliconflow.cn/v1/chat/completions'
+const data = {
+  model: '',
+  messages: [
+
+  ],
+  stream: false,
+  max_tokens: 512,
+  temperature: 0.7,
+  top_p: 0.7,
+  top_k: 50,
+  frequency_penalty: 0,
+  n: 1,
 }
 
-export default function request(content: string, opts: { token: string, model: string }): Promise<Response> {
+export default function request(contents: string[], opts: { token: string, model: string }): Promise<string> {
   return new Promise((resolve, reject) => {
     const { token, model } = opts
-    options.headers.authorization = `Bearer ${token}`
-    options.data.model = model
-    options.data.messages.push({ role: 'user', content })
-    axios.request(options).then((response) => {
-      resolve(response.data)
+    axios.post(URL, {
+      ...data,
+      model,
+      messages: contents.map((content) => {
+        return { role: 'system', content }
+      }),
+    }, {
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+        'authorization': `Bearer ${token}`,
+      },
+    }).then((response) => {
+      try {
+        const content = response.data.choices[0].message.content
+        resolve(content.trim())
+      }
+      catch (error) {
+        reject(error)
+      }
     }).catch((error) => {
       reject(error)
     })
