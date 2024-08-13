@@ -10,4 +10,8 @@ export default defineConfig({
   external: [
     'vscode',
   ],
+  noExternal: [
+    'change-case-all',
+    'axios',
+  ],
 })
