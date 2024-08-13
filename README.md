@@ -7,7 +7,7 @@
 ## Features
 
 1. 支持基于 change-case-all 变量命名风格转换
-2. 支持基于 SiliconCloud 变量命名风格转换 (实验, 根据目前的提示词输出不太稳定)
+2. 支持基于 SiliconCloud 变量命名风格转换 (实验)
 
 ## Usage
 
