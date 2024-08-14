@@ -1,8 +1,9 @@
 import type { ExtensionContext, TextEditor } from 'vscode'
-import { commands, window, workspace } from 'vscode'
+import { commands, languages, window, workspace } from 'vscode'
 import { Case } from 'change-case-all'
 import request from './api'
 import prompt from './prompt'
+import VariableCompletionProvider from './providers/VariableCompletionProvider'
 
 async function changeCaseByAPI(content: string, commandId: string) {
   const { token, model } = getSiliconCloudConfig()
@@ -70,6 +71,9 @@ export function activate(context: ExtensionContext) {
       commands.registerTextEditorCommand(`var-conv-next.${commandId}`, (textEditor: TextEditor) => handle(textEditor, commandId)),
     )
   })
+  context.subscriptions.push(
+    languages.registerCompletionItemProvider({ pattern: '**' }, new VariableCompletionProvider()),
+  )
 }
 
 export function deactivate() { }
