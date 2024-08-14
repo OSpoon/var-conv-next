@@ -2,12 +2,12 @@ import { Case } from 'change-case-all'
 import type { CompletionItemProvider, CompletionList, Position, ProviderResult, TextDocument } from 'vscode'
 import { CompletionItem, CompletionItemKind, Range } from 'vscode'
 
-export default class VariableCompletionProvider implements CompletionItemProvider {
+export const variableCompletionProvider: CompletionItemProvider = {
   provideCompletionItems(document: TextDocument, position: Position): ProviderResult<CompletionItem[] | CompletionList<CompletionItem>> {
     const lineText = document.lineAt(position.line).text
     const linePrefix = lineText.slice(0, position.character)
 
-    const match = linePrefix.match(/\b(const|let|var)\s+(\w+(?:\s\w+)*)$/)
+    const match = linePrefix.match(/\b(const|let|var)\s+(\w[\s\w-]*)$/)
     if (!match) {
       return
     }
@@ -40,16 +40,21 @@ export default class VariableCompletionProvider implements CompletionItemProvide
       new CompletionItem(constantCase, CompletionItemKind.Variable),
     ]
 
-    // Define the range to cover the variable name
-    const startPosition = position.with(position.line, startOffset)
-    const endPosition = position.with(position.line, startOffset + variableName.length)
-    const range = new Range(startPosition, endPosition)
-
     // Set the range for each CompletionItem
     items.forEach((item) => {
-      item.range = range
+      item.range = new Range(position, position)
+      item.insertText = '' // Set insertText to empty string
+      item.additionalTextEdits = [
+        {
+          newText: item.label.toString(), // Replace the variable name with the style
+          range: new Range(
+            position.with(position.line, startOffset),
+            position.with(position.line, startOffset + variableName.length),
+          ),
+        },
+      ]
     })
 
     return items
-  }
+  },
 }
